@@ -1,0 +1,44 @@
+
+
+<div class="container my-4">  
+
+    <div class="calculator card">
+    
+    <input type="text" class="calculator-screen z-depth-1" value="{{ numberOne }} {{ mathOperation }} {{ numberTwo }}" disabled />
+    <div *ngIf="calcRezult !=  0">
+      <input type="text"   class="calculator-screen z-depth-1" value="= {{ calcRezult }}" disabled />
+    </div>
+    
+       
+    
+        <div class="calculator-keys">
+    
+          <button type="button" #plus class="operator btn btn-info" value="+" (click)="getValue (plus.value)">+</button>
+          <button type="button" #minus class="operator btn btn-info" value="-" (click)="getValue (minus.value)">-</button>
+          <button type="button" #multiplication class="operator btn btn-info" value="*" (click)="getValue (multiplication.value)">&times;</button>
+          <button type="button" #divided class="operator btn btn-info" value="/" (click)="getValue (divided.value)">&divide;</button>
+    
+          <button type="button" #seven value="7" class="btn btn-light waves-effect" (click)="getValue (seven.value)">7</button>
+          <button type="button" #eight value="8" class="btn btn-light waves-effect" (click)="getValue (eight.value)">8</button>
+          <button type="button" #nine value="9" class="btn btn-light waves-effect" (click)="getValue (nine.value)">9</button>
+    
+    
+          <button type="button" #four value="4" class="btn btn-light waves-effect" (click)="getValue (four.value)">4</button>
+          <button type="button" #five value="5" class="btn btn-light waves-effect" (click)="getValue (five.value)">5</button>
+          <button type="button" #six value="6" class="btn btn-light waves-effect" (click)="getValue (six.value)">6</button>
+    
+    
+          <button type="button" #one value="1" class="btn btn-light waves-effect" (click)="getValue (one.value)">1</button>
+          <button type="button" #two value="2" class="btn btn-light waves-effect" (click)="getValue (two.value)">2</button>
+          <button type="button" #three value="3" class="btn btn-light waves-effect" (click)="getValue (three.value)">3</button>
+    
+    
+          <button type="button" #zero value="0" class="btn btn-light waves-effect" (click)="getValue (zero.value)">0</button>
+          <button type="button" #decimal class="decimal function btn btn-secondary" value="." (click)="getValue (decimal.value)">.</button>
+          <button type="button" #clear class="all-clear function btn btn-danger btn-sm" value="clear" (click)="clearRezult (clear.value)">AC</button>
+    
+          <button type="button" #equal class="equal-sign operator btn btn-default" value="=" (click)=" equalFun (equal.value)">=</button>
+    
+        </div>
+      </div>
+    </div>

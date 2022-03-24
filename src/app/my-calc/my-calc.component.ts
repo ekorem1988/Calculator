@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { MathOper } from './MyEnum';
+import { MathOper, checkEqual, checNotkEqual } from './MyEnum';
 
 
 @Component({
@@ -41,11 +41,11 @@ export class MyCalcComponent  implements OnInit {
 
   getValue (value:string) {
     
-    if (this.calcRezult != 0 && (value ===  this.mathOper.Plus || value === this.mathOper.Minus || value === this.mathOper.Multipl || value === this.mathOper.Divide)){
+    if (this.calcRezult != 0 && value === checkEqual(value)){
+        console.log(checkEqual(value))
         this.mathOperation = "";
         this.numberTwo = "";
         this.numberOne = this.calcRezult.toString();
-  
     }
 
     if (this.mathOperation != "" && this.numberOne != "") {
@@ -53,13 +53,12 @@ export class MyCalcComponent  implements OnInit {
       this.numberTwo += value;
     
 
-    } else if (this.numberOne != "" && (value ===  this.mathOper.Plus || value === this.mathOper.Minus || value === this.mathOper.Multipl || value === this.mathOper.Divide) && this.numberTwo === "") {
+    } else if (this.numberOne != "" && value === checkEqual(value) && this.numberTwo === "") {
 
       this.mathOperation = value;
 
-    } else if (this.numberTwo === "") {
+    } else if (this.numberTwo === "" && checNotkEqual(value) === "Yes") {
       this.numberOne += value;
-      
     }
     
     

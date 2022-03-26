@@ -42,13 +42,13 @@ export class MyCalcComponent  implements OnInit {
   getValue (value:string) {
     
     if (this.calcRezult != 0 && value === checkEqual(value)){
-        console.log(checkEqual(value))
+        
         this.mathOperation = "";
         this.numberTwo = "";
         this.numberOne = this.calcRezult.toString();
     }
 
-    if (this.mathOperation != "" && this.numberOne != "") {
+    if (this.mathOperation != "" && this.numberOne != "" && checNotkEqual(value) === "Yes") {
 
       this.numberTwo += value;
     

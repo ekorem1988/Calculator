@@ -4,7 +4,7 @@
 
     <div class="calculator card">
     
-    <input type="text" class="calculator-screen z-depth-1" value="{{ numberOne }} {{ mathOperation }} {{ numberTwo }}" disabled />
+    <input [(ngModel)]="inputField" type="text"  class="calculator-screen z-depth-1" value="{{ numberOne }} {{ mathOperation }} {{ numberTwo }}"  (keyup)="getInputValue($event)"/>
     <div *ngIf="calcRezult !=  0">
       <input type="text"   class="calculator-screen z-depth-1" value="= {{ calcRezult }}" disabled />
     </div>
@@ -12,11 +12,9 @@
        
     
         <div class="calculator-keys">
-    
-          <button type="button" #plus class="operator btn btn-info" value="+" (click)="getValue (plus.value)">+</button>
-          <button type="button" #minus class="operator btn btn-info" value="-" (click)="getValue (minus.value)">-</button>
-          <button type="button" #multiplication class="operator btn btn-info" value="*" (click)="getValue (multiplication.value)">&times;</button>
-          <button type="button" #divided class="operator btn btn-info" value="/" (click)="getValue (divided.value)">&divide;</button>
+
+          <button type="button" *ngFor="let enum of mathOper | keyvalue" #oper class="operator btn btn-info" value="{{ enum.value }}" (click)="getValue (oper.value)">{{ enum.value }}</button>
+  
 
           <button *ngFor="let item of listOfoNumbers" type="button" #key value="{{ item }}" class="btn btn-light waves-effect" (click)="getValue (key.value)">{{ item }}</button>
     

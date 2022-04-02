@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { MathOper} from './MyEnum';
+
 
 @Component({
   selector: 'app-my-calc',
@@ -9,88 +11,44 @@ export class MyCalcComponent implements OnInit {
   
   listOfoNumbers = [7,8,9,4,5,6,1,2,3,0];
 
-  numberOne = "";
-  mathOperation = "";
-  numberTwo = "";
   calcRezult = 0;
- 
+  inputField = "";
+
+  mathOper = MathOper;
+
+  
 
   constructor() { }
 
   ngOnInit(): void {
+    
   }
 
 
- 
-  clearRezult (value:string): void {
-    if (value === "clear"){
-     
-      this.numberOne = "";
+  clearRezult (): void {
+    
       this.calcRezult = 0
-      this.mathOperation = "";
-      this.numberTwo = "";
+      this.inputField = "";
 
-    }
   }
 
-  getValue (value:string) {
-    
-    if (this.calcRezult != 0 && (value ===  "+" || value === "-" || value === "*" || value === "/")){
-        this.mathOperation = "";
-        this.numberTwo = "";
-        this.numberOne = this.calcRezult.toString();
-  
-    }
+  getInputValue (inputValue:any) {
 
-    if (this.mathOperation != "" && this.numberOne != "") {
-
-      this.numberTwo += value;
-    
-
-    } else if (this.numberOne != "" && (value ===  "+" || value === "-" || value === "*" || value === "/") && this.numberTwo === "") {
-
-      this.mathOperation = value;
-
-    } else if (this.numberTwo === "") {
-      this.numberOne += value;
-      
-    }
-    
+    this.inputField = inputValue.target.value;
     
   }
 
-  calcResult (x:string, y:string, oper:string) {
-    var num1 = parseFloat(x);
-    var num2 = parseFloat(y);
- 
-    if (oper === "+"){
+  getValue (btnValue:string) {
 
-      this.calcRezult = num1 + num2
-      
-    } else if (oper === "-"){
+    this.inputField  += btnValue;
 
-      this.calcRezult = num1 - num2
-     
-    } else if (oper === "*"){
-
-      this.calcRezult = num1 * num2
-      
-    } else if (oper === "/"){
-
-      this.calcRezult = num1 / num2
-      
-    }
-  
-  }
- 
-  equalFun (value:string){
-    if (value === "="){
-
-      this.calcResult(this.numberOne, this.numberTwo, this.mathOperation);
-
-    }
   }
 
-  
+  equalFun (){
+
+      const inputRez = eval(this.inputField)
+      this.calcRezult =  inputRez;
+
+  }
 
 }

@@ -4,7 +4,7 @@
 
     <div class="calculator card">
     
-    <input type="text" class="calculator-screen z-depth-1" value="{{ numberOne }} {{ mathOperation }} {{ numberTwo }}" disabled />
+    <input [(ngModel)]="inputField" type="text"  class="calculator-screen z-depth-1" value="{{ numberOne }} {{ mathOperation }} {{ numberTwo }}"  (keyup)="getInputValue($event)"/>
     <div *ngIf="calcRezult !=  0">
       <input type="text"   class="calculator-screen z-depth-1" value="= {{ calcRezult }}" disabled />
     </div>

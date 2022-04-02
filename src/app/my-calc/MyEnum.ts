@@ -18,10 +18,10 @@ export function checkEqual(param: string) {
 }
 
 export function checNotkEqual(param: string) {
-    if (param != MathOper.Plus && param != MathOper.Multipl && param != MathOper.Divide) {
-        return "Yes"
+    if (param !== MathOper.Plus && param !== MathOper.Multipl && param !== MathOper.Divide) {
+        return true
     }else{
-        return 
+        return false
     }
     
 }

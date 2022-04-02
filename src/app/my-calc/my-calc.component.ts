@@ -17,6 +17,8 @@ export class MyCalcComponent  implements OnInit {
   mathOperation = "";
   numberTwo = "";
   calcRezult = 0;
+  inputField = "";
+
   
   mathOper = MathOper;
 
@@ -25,45 +27,58 @@ export class MyCalcComponent  implements OnInit {
   constructor() { }
 
   ngOnInit(): void {
-    console.log(MathOper)
+    
   }
 
-  clearRezult (value:string): void {
-    if (value === "clear"){
+ 
+
+
+  clearRezult (clearBtn:string): void {
+    if (clearBtn === "clear"){
      
       this.numberOne = "";
       this.calcRezult = 0
       this.mathOperation = "";
       this.numberTwo = "";
+      this.inputField = "";
 
     }
   }
 
-  getValue (value:string) {
+  getInputValue (inputValue:any) {
+    this.inputField = inputValue.target.value;
+
     
-    if (this.calcRezult != 0 && value === checkEqual(value)){
+  }
+
+  getValue (btnValue:string) {
+
+    this.inputField  += btnValue;
+
+    /**if (this.calcRezult != 0 && btnValue === checkEqual(btnValue)){
         
         this.mathOperation = "";
         this.numberTwo = "";
         this.numberOne = this.calcRezult.toString();
     }
 
-    if (this.mathOperation != "" && this.numberOne != "" && checNotkEqual(value) === "Yes") {
+    if (this.mathOperation != "" && this.numberOne != "" && checNotkEqual(btnValue)) {
 
-      this.numberTwo += value;
+      this.numberTwo += btnValue;
     
 
-    } else if (this.numberOne != "" && value === checkEqual(value) && this.numberTwo === "") {
+    } else if (this.numberOne != "" && btnValue === checkEqual(btnValue) && this.numberTwo === "") {
 
-      this.mathOperation = value;
+      this.mathOperation = btnValue;
 
-    } else if (this.numberTwo === "" && checNotkEqual(value) === "Yes") {
-      this.numberOne += value;
+    } else if (this.numberTwo === "" && checNotkEqual(btnValue)) {
+      this.numberOne += btnValue;
     }
-    
+    **/
     
   }
 
+  /** 
   calcResult (x:string, y:string, oper:string) {
     var num1 = parseFloat(x);
     var num2 = parseFloat(y);
@@ -87,13 +102,23 @@ export class MyCalcComponent  implements OnInit {
     }
   
   }
+  **/
  
-  equalFun (value:string){
-    if (value === "="){
+  equalFun (btnEqual:string){
+
+    /** 
+    if (btnEqual === "=" && this.inputField === ""){
 
       this.calcResult(this.numberOne, this.numberTwo, this.mathOperation);
 
+    }else{
+      const inputRez = eval(this.inputField)
+      this.calcRezult =  inputRez;
     }
+    **/
+      const inputRez = eval(this.inputField)
+      this.calcRezult =  inputRez;
+
   }
   
 

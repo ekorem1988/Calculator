@@ -52,3 +52,6 @@ export class MyCalcComponent implements OnInit {
   }
 
 }
+
+
+

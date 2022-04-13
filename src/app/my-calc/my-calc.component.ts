@@ -9,12 +9,12 @@ import { MathOper} from './MyEnum';
 })
 export class MyCalcComponent implements OnInit {
   
-  listOfoNumbers = [7,8,9,4,5,6,1,2,3,0];
+  readonly listOfoNumbers = [7,8,9,4,5,6,1,2,3,0];
 
-  calcRezult = 0;
-  inputField = "";
+  calcRezult: number = 0;
+  inputField: string = "";
 
-  mathOper = MathOper;
+  readonly mathOper = MathOper;
 
   
 
@@ -38,7 +38,7 @@ export class MyCalcComponent implements OnInit {
     
   }
 
-  getValue (btnValue:string) {
+  getBtnValue (btnValue:string) {
 
     this.inputField  += btnValue;
 

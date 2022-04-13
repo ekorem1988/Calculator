@@ -18,14 +18,14 @@
         <div class="calculator-keys">
 
     
-          <button type="button" *ngFor="let enum of mathOper | keyvalue" #oper class="operator btn btn-info" value="{{ enum.value }}" (click)="getValue (oper.value)">{{ enum.value }}</button>
+          <button type="button" *ngFor="let enum of mathOper | keyvalue" #oper class="operator btn btn-info" value="{{ enum.value }}" (click)="getBtnValue (oper.value)">{{ enum.value }}</button>
 
 
 
 
-          <button *ngFor="let item of listOfoNumbers" type="button" #key value="{{ item }}" class="btn btn-light waves-effect" (click)="getValue (key.value)">{{ item }}</button>
+          <button *ngFor="let item of listOfoNumbers" type="button" #key value="{{ item }}" class="btn btn-light waves-effect" (click)="getBtnValue (key.value)">{{ item }}</button>
     
-          <button type="button" #decimal class="decimal function btn btn-secondary" value="." (click)="getValue (decimal.value)">.</button>
+          <button type="button" #decimal class="decimal function btn btn-secondary" value="." (click)="getBtnValue (decimal.value)">.</button>
           <button type="button"  class="all-clear function btn btn-danger btn-sm"  (click)="clearRezult ()">AC</button>
     
           <button type="button"  class="equal-sign operator btn btn-default"  (click)=" equalFun ()">=</button>

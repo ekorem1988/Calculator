@@ -48,7 +48,6 @@ export class MyCalcComponent implements OnInit {
 
       const inputRez = eval(this.inputField)
       this.calcRezult =  inputRez;
-
   }
 
 }

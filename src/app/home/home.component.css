@@ -1,0 +1,22 @@
+
+.center-screen {
+    margin-top: 320px;
+    width: fit-content;
+    height: 10em;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: rgb(241, 101, 101, 0.6);
+    margin-left: auto;
+    margin-right: auto;
+
+
+  }
+
+.center-screen p {
+    
+    padding:0 20px 0  20px;
+    margin: 0;
+    font-size: 4em;
+    
+ }

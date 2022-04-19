@@ -1,29 +1,28 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-import { CUSTOM_ELEMENTS_SCHEMA, NO_ERRORS_SCHEMA } from '@angular/core';
 
-import { MyCalcComponent } from './my-calc.component';
+import { HomeComponent } from './home.component';
+import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { RouterTestingModule } from '@angular/router/testing';
 
-describe('MyCalcComponent', () => {
-  let component: MyCalcComponent;
-  let fixture: ComponentFixture<MyCalcComponent>;
+describe('HomeComponent', () => {
+  let component: HomeComponent;
+  let fixture: ComponentFixture<HomeComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
       imports: [
         RouterTestingModule
       ],
-      declarations: [ MyCalcComponent ],
+      declarations: [ HomeComponent ],
       schemas: [
         CUSTOM_ELEMENTS_SCHEMA,
-        NO_ERRORS_SCHEMA
-      ]
+      ],
     })
     .compileComponents();
   });
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(MyCalcComponent);
+    fixture = TestBed.createComponent(HomeComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

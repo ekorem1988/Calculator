@@ -1,29 +1,28 @@
+import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-import { CUSTOM_ELEMENTS_SCHEMA, NO_ERRORS_SCHEMA } from '@angular/core';
-
-import { MyCalcComponent } from './my-calc.component';
 import { RouterTestingModule } from '@angular/router/testing';
 
-describe('MyCalcComponent', () => {
-  let component: MyCalcComponent;
-  let fixture: ComponentFixture<MyCalcComponent>;
+import { NavigationComponent } from './navigation.component';
+
+describe('NavigationComponent', () => {
+  let component: NavigationComponent;
+  let fixture: ComponentFixture<NavigationComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
       imports: [
         RouterTestingModule
       ],
-      declarations: [ MyCalcComponent ],
+      declarations: [ NavigationComponent ],
       schemas: [
         CUSTOM_ELEMENTS_SCHEMA,
-        NO_ERRORS_SCHEMA
-      ]
+      ],
     })
     .compileComponents();
   });
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(MyCalcComponent);
+    fixture = TestBed.createComponent(NavigationComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
